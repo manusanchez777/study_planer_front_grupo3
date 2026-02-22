@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study Planner</title>
-    <!-- la conexiòn con los estilos css -->
+    <title>Login | Study Planner</title>
+
     <link rel="stylesheet" th:href="@{/css/main.css}" href="/css/main.css">
-    <!-- Bootstrap: iconos: -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 </head>
-<body>
+<body class="login-bg">
 
 <nav class="navbar">
     <div class="logo">Study Planner</div>
@@ -31,20 +30,39 @@
                 </button>
             </div>
         </div>
-        <a th:href="@{/login}" class="btn">Iniciar Sesión</a>
+        <a th:href="@{/}" class="btn">Inicio</a>
     </div>
 </nav>
 
-<section class="hero">
-    <h1><i class="bi bi-bookmark-star" aria-hidden="true"></i> Organiza tu vida académica</h1>
-    <p>Planifica tareas, exámenes y metas en un solo lugar.</p>
-    <a th:href="@{/login}" class="btn primary">Comenzar</a>
+<section class="login-container">
+    <div class="login-card">
+        <div th:if="${message}" class="alert alert-success" th:text="${message}"></div>
+        <h2>Iniciar Sesión</h2>
+
+        <form>
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" placeholder="ejemplo@email.com" required>
+            </div>
+
+            <div class="input-group">
+                <label>Contraseña</label>
+                <input type="password" placeholder="********" required>
+            </div>
+
+            <button type="submit" class="btn primary">Entrar</button>
+        </form>
+
+        <p class="register-link">
+            ¿No tienes cuenta? <a th:href="@{/register}">Regístrate</a>
+        </p>
+    </div>
 </section>
 
 <footer>
     <p>© 2026 Study Planner. Todos los derechos reservados.</p>
 </footer>
-<!-- conexiòn con js: -->
+
 <script th:src="@{/js/theme.js}" src="/js/theme.js"></script>
 </body>
 </html>
